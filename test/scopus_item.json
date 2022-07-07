@@ -1,0 +1,84 @@
+{
+    "@_fa": "true",
+    "link": [
+        {
+            "@_fa": "true",
+            "@ref": "self",
+            "@href": "https://api.elsevier.com/content/abstract/scopus_id/85124311677"
+        },
+        {
+            "@_fa": "true",
+            "@ref": "author-affiliation",
+            "@href": "https://api.elsevier.com/content/abstract/scopus_id/85124311677?field=author,affiliation"
+        },
+        {
+            "@_fa": "true",
+            "@ref": "scopus",
+            "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85124311677&origin=inward"
+        },
+        {
+            "@_fa": "true",
+            "@ref": "scopus-citedby",
+            "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85124311677&origin=inward"
+        }
+    ],
+    "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85124311677",
+    "dc:identifier": "SCOPUS_ID:85124311677",
+    "eid": "2-s2.0-85124311677",
+    "dc:title": "A positive correlation between GC content and growth temperature in prokaryotes",
+    "dc:creator": "Hu E.Z.",
+    "prism:publicationName": "BMC Genomics",
+    "prism:eIssn": "14712164",
+    "prism:volume": "23",
+    "prism:issueIdentifier": "1",
+    "prism:pageRange": null,
+    "prism:coverDate": "2022-12-01",
+    "prism:coverDisplayDate": "December 2022",
+    "prism:doi": "10.1186/s12864-022-08353-7",
+    "citedby-count": "2",
+    "affiliation": [
+        {
+            "@_fa": "true",
+            "affilname": "Beijing Normal University",
+            "affiliation-city": "Beijing",
+            "affiliation-country": "China"
+        }
+    ],
+    "pubmed-id": "35139824",
+    "prism:aggregationType": "Journal",
+    "subtype": "ar",
+    "subtypeDescription": "Article",
+    "article-number": "110",
+    "source-id": "21727",
+    "openaccess": "1",
+    "openaccessFlag": true,
+    "freetoread": {
+        "value": [
+            {
+                "$": "all"
+            },
+            {
+                "$": "publisherfullgold"
+            },
+            {
+                "$": "repository"
+            },
+            {
+                "$": "repositoryvor"
+            }
+        ]
+    },
+    "freetoreadLabel": {
+        "value": [
+            {
+                "$": "All Open Access"
+            },
+            {
+                "$": "Gold"
+            },
+            {
+                "$": "Green"
+            }
+        ]
+    }
+},
