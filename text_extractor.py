@@ -4,6 +4,7 @@ from lxml import etree
 query = "//e:full-text-retrieval-response/e:originalText/xocs:doc/xocs:serial-item/ja:article/ja:body/ce:sections/"
 doi_query = "//e:full-text-retrieval-response/e:originalText/xocs:doc/xocs:meta/xocs:doi/text()"
 csv_dict = {}
+methd_terms = ["methodology", "technique", "approach", "methodological-analysis", "framework", "theory", "methods", "concept", "rationale", "conceptual", "qualitative", "quantitative", "theoretical", "methodological", "model", "analytical"]
 def path_extract(file_parser,error_path,paper_doi):
     paths = ['ce:section']
     pattern = re.compile(r"ce:section[[0-9]{2}]$")
@@ -12,7 +13,7 @@ def path_extract(file_parser,error_path,paper_doi):
         path_ = re.search(pattern, path)
         if path_:
             try:
-                print(re.split('/\*/\*\[\d\]/ce:sections/',path))
+                # print(re.split('/\*/\*\[\d\]/ce:sections/',path))
                 final_path = re.split('/\*/\*\[\d\]/ce:sections/',path)[1]
             except Exception as e:
                 print(e)
@@ -51,10 +52,11 @@ def text_extract(filepath ,doc,paper_doi,error_path):
         section_label = root.xpath(section_label_query, namespaces=ns)
         section_title_query =  query + path + f"/ce:section-title/text()"
         section_title = ''.join(root.xpath(section_title_query, namespaces=ns))
-        para = ''.join(root.xpath(para_query, namespaces=ns))
-        para = para.strip('\n')
-        para = para.strip('\t')
-        temp.append(para)
+        if any(x for x in methd_terms if x in section_title):
+            para = ''.join(root.xpath(para_query, namespaces=ns))
+            para = para.strip('\n')
+            para = para.strip('\t')
+            temp.append(para)
         # if len(section_label):  
         #     if re.search('(\d(\.\d)+)', section_label[0]):
         #         print(section_label)
@@ -69,9 +71,11 @@ def text_extract(filepath ,doc,paper_doi,error_path):
     csv_dict["text"] = temp 
     df = pd.DataFrame(csv_dict)
     # print(paper_doi)
-    print("saving the file")
-    df.to_csv(filepath)   
-
+    if not df.empty:
+        print("saving the file")
+        df.to_csv(filepath)   
+    else:
+        print("n for methodology section")
 # doc_ = etree.parse('./test.xml')
 # print(doc_)
 # text_extract(1,doc_)
