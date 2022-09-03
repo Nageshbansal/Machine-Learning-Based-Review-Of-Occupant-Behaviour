@@ -41,7 +41,7 @@ ns = {
 
 def get_xml(paper_doi,error_path):
      
-    url = "https://api.elsevier.com/content/article/doi/" + paper_doi + "?apikey=" +headers_xml['X-ELS-APIKey'] +"&httpAccept=application/xml"
+    url = "https://api.elsevier.com/content/article/doi/" + str(paper_doi) + "?apikey=" +headers_xml['X-ELS-APIKey'] +"&httpAccept=application/xml"
     try:
         print("Fetching the paper.....")
         opener = build_opener()
