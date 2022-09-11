@@ -78,7 +78,7 @@ def get_xml(paper_doi,error_path):
 
 
 def get_doi_csv(file_path):
-    df = pd.read_csv("./scopus.csv",usecols=['DOI'])
+    df = pd.read_csv(file_path,usecols=['DOI'])
     return df 
 
 
